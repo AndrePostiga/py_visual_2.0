@@ -1,0 +1,31 @@
+{
+    "1": {
+        "camera": -1, 
+        "fps": 30, 
+        "codec": "MJPG", 
+        "buffer": 64, 
+        "resolucao_w": 300
+    }, 
+    "2": {
+        "camera": "asdasdasdasdas", 
+        "fps": 500, 
+        "codec": "MJPG", 
+        "buffer": 512, 
+        "resolucao_w": 670
+    },
+    "3":{
+        "camera": -1, 
+        "fps": 123, 
+        "codec": "MJPG", 
+        "buffer": 3421, 
+        "resolucao_w": 500
+    },
+    "4":{
+        "camera": "oioioioioioi", 
+        "fps": 123123123123, 
+        "codec": "MJPG", 
+        "buffer": 123123, 
+        "resolucao_w": 332
+    }
+
+}
