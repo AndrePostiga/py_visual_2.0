@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-from autenticacao import autenticacao
+from uploader.autenticacao import autenticacao
 import datetime
 from googleapiclient.http import MediaFileUpload
 import socket

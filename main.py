@@ -11,7 +11,6 @@ from uploader.upload import upload
 from helpers.configHelper import configHelper
 
 
-
 LED_AZUL = 8
 LED_VERDE = 10
 LED_VERMELHO = 12
@@ -105,19 +104,10 @@ while True:
         cv2.destroyAllWindows()
         vs.stop()
         gpio.output(LED_VERMELHO, 0)
-
         
-
-
-'''
-
-#up = upload()
-#if mn.enviar_drive() and up.internet():
-#    up.uparVideos('../output')
-#else:
-#    print("[INFO] O computador não possui internet neste momento, o arquivo será salvo no disco")
-#    mn.__init__()
-
-
-
-'''
+        #upa os arquivos ao final da gravação
+        up = upload()
+        if up.internet():
+            up.uparVideos('../output')
+        else:
+            print("[INFO] O computador não possui internet neste momento, o arquivo será salvo no disco")
