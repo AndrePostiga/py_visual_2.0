@@ -1,31 +1,31 @@
 {
     "1": {
-        "camera": -1, 
-        "fps": 30, 
-        "codec": "MJPG", 
-        "buffer": 64, 
-        "resolucao_w": 300
+        "camera": "rtsp://admin:cemig2019@192.168.1.101:554/", 
+        "fps": 60, 
+        "codec": "H264", 
+        "buffer": 50, 
+        "resolucao_w": 900
     }, 
     "2": {
-        "camera": "asdasdasdasdas", 
-        "fps": 500, 
-        "codec": "MJPG", 
-        "buffer": 512, 
-        "resolucao_w": 670
+        "camera": "rtsp://admin:cemig2019@192.168.1.101:554/", 
+        "fps": 30, 
+        "codec": "H264", 
+        "buffer": 100, 
+        "resolucao_w": 300
     },
     "3":{
-        "camera": -1, 
-        "fps": 123, 
-        "codec": "MJPG", 
-        "buffer": 3421, 
-        "resolucao_w": 500
+        "camera": "rtsp://admin:cemig2019@192.168.1.101:554/", 
+        "fps": 40, 
+        "codec": "H264", 
+        "buffer": 100, 
+        "resolucao_w": 300
     },
     "4":{
-        "camera": "oioioioioioi", 
-        "fps": 123123123123, 
-        "codec": "MJPG", 
-        "buffer": 123123, 
-        "resolucao_w": 332
+        "camera": "rtsp://admin:cemig2019@192.168.1.101:554/", 
+        "fps": 60, 
+        "codec": "H264", 
+        "buffer": 100, 
+        "resolucao_w": 300
     }
 
 }
