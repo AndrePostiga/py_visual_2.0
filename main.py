@@ -15,11 +15,11 @@ from helpers.configHelper import configHelper
 LED_AZUL = 8
 LED_VERDE = 10
 LED_VERMELHO = 12
-LED_AMARELO = 16
+LED_AMARELO = 16 #sem função por enquanto
 
-BTN_GRAVAR = 18
-BTN_EVENTO = 22
-BTN_PROX = 24
+BTN_GRAVAR = 22
+BTN_EVENTO = 24
+BTN_PROX = 26
 
 gpio.setmode(gpio.BOARD)   #Configura o modo de definição de pinos como BOARD (contagem de pinos da placa)
 gpio.setwarnings(False)    #Desativa os avisos 
@@ -37,18 +37,26 @@ gpio.add_event_detect(BTN_PROX, gpio.FALLING, bouncetime=400)
 gpio.add_event_detect(BTN_GRAVAR, gpio.FALLING, bouncetime=400)
 gpio.add_event_detect(BTN_EVENTO, gpio.FALLING, bouncetime=400)
 
+#apaga todos os leds
+gpio.output(LED_AZUL, 0)
+gpio.output(LED_AMARELO, 0)
+gpio.output(LED_VERDE, 0)
+gpio.output(LED_VERMELHO, 0)
+
 
 parametros = configHelper()
 
 while True:
 
     gpio.output(LED_AZUL, 1)  #acende led azul, aguardando comandos    
-    if gpio.event_detected(BTN_PROX): #se o botão prox config for apertado        
+    if gpio.event_detected(BTN_PROX): #se o botão prox config for apertado
+
         parametros.proxConfig()
         gpio.output(LED_AZUL, 0)
         print("[INFO] Trocando configuração, configuração {} selecionada".format(parametros.configNumber))
         print(parametros.currentConfig)
-    elif gpio.event_detected(BTN_GRAVAR):            
+    elif gpio.event_detected(BTN_GRAVAR):       
+
         gpio.output(LED_VERMELHO, 1)
 
         print("[INFO] Esquentando a câmera")
@@ -80,9 +88,7 @@ while True:
                     p = "{}/{}.avi".format('output', timestamp.strftime("%d-%m-%Y-%H:%M:%S"))
                     kcw.start(p, cv2.VideoWriter_fourcc(*parametros.currentConfig['codec']), parametros.currentConfig['fps'])
                 
-                gpio.output(LED_VERDE, 0)
-           
-            
+                
             if updateConsecFrames:
                 consecFrames += 1
 
@@ -90,9 +96,11 @@ while True:
 
             if kcw.recording and consecFrames == parametros.currentConfig['buffer']:
                 kcw.finish()
+                gpio.output(LED_VERDE, 0)
 
         if kcw.recording:
             kcw.finish()
+            gpio.output(LED_VERDE, 0)
 
         cv2.destroyAllWindows()
         vs.stop()
