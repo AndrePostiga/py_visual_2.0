@@ -106,8 +106,11 @@ while True:
         gpio.output(LED_VERMELHO, 0)
         
         #upa os arquivos ao final da gravação
-        up = upload()
+        
+        up = upload()  
+        gpio.output(LED_AMARELO, 1)      
         if up.internet():
             up.uparVideos('../output')
         else:
             print("[INFO] O computador não possui internet neste momento, o arquivo será salvo no disco")
+        gpio.output(LED_AMARELO, 0)
