@@ -109,8 +109,9 @@ while True:
         
         up = upload()  
         gpio.output(LED_AMARELO, 1)      
+        gpio.output(LED_AZUL, 0)   
         if up.internet():
-            up.uparVideos('../output')
+            up.uparVideos('output')
         else:
             print("[INFO] O computador não possui internet neste momento, o arquivo será salvo no disco")
-        gpio.output(LED_AMARELO, 0)
+        gpio.output(LED_AMARELO, 0)           

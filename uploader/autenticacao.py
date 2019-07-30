@@ -21,8 +21,8 @@ class autenticacao:
         # The file token.pickle stores the user's access and refresh tokens, and is
         # created automatically when the authorization flow completes for the first
         # time.
-        if os.path.exists('token.pickle'):
-            with open('token.pickle', 'rb') as token:
+        if os.path.exists('uploader/token.pickle'):
+            with open('uploader/token.pickle', 'rb') as token:
                 self.creds = pickle.load(token)
         # If there are no (valid) credentials available, let the user log in.
         if not self.creds or not self.creds.valid:
@@ -30,10 +30,10 @@ class autenticacao:
                 self.creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    'credentials.json', self.SCOPES)
+                    'uploader/credentials.json', self.SCOPES)
                 self.creds = flow.run_local_server()
             # Save the credentials for the next run
-            with open('token.pickle', 'wb') as token:
+            with open('uploader/token.pickle', 'wb') as token:
                 pickle.dump(self.creds, token)
         
         return self.creds
