@@ -32,7 +32,7 @@ class KeyClipWriter:
         if not os.path.exists(outputPath['path']):
             os.makedirs(outputPath['path'])        
 
-        output = outputPath['path'] + '/'+ outputPath['file']        
+        output = outputPath['path'] + '/'+ outputPath['file']  + outputPath['format']      
         #indicar qndo estamos gravando, iniciar o escritor de video
         #iniciar a fila de frames que vão ser escritas no arquivo de video
         self.recording = True

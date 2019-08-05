@@ -87,6 +87,7 @@ while True:
                     p = {
                         "path" : "output",
                         "file" : timestamp.strftime("%d-%m-%Y-%H:%M:%S")
+                        "format" : ".avi"
                     }
                     #p = "{}/{}.avi".format('output', timestamp.strftime("%d-%m-%Y-%H:%M:%S"))
                     kcw.start(p, cv2.VideoWriter_fourcc(*parametros.currentConfig['codec']), parametros.currentConfig['fps'])
