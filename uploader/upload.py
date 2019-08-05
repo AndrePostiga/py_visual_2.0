@@ -69,7 +69,7 @@ class upload:
 
 
     def uparVideos(self, local):
-        local = "/" + local
+        local = local
         path_size = 0
         porcentagem_concluida = 0
         for videos in os.listdir(local):            
