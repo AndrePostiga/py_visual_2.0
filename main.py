@@ -84,7 +84,11 @@ while True:
 
                 if not kcw.recording:
                     timestamp = datetime.datetime.now()
-                    p = "{}/{}.avi".format('output', timestamp.strftime("%d-%m-%Y-%H:%M:%S"))
+                    p = {
+                        "path" : "output",
+                        "file" : timestamp.strftime("%d-%m-%Y-%H:%M:%S")
+                    }
+                    #p = "{}/{}.avi".format('output', timestamp.strftime("%d-%m-%Y-%H:%M:%S"))
                     kcw.start(p, cv2.VideoWriter_fourcc(*parametros.currentConfig['codec']), parametros.currentConfig['fps'])
                 
                 

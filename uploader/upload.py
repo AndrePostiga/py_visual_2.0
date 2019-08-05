@@ -68,10 +68,7 @@ class upload:
             return False
 
 
-    def uparVideos(self, local):
-        if not os.path.exists(local):
-            os.makedirs(local)
-        
+    def uparVideos(self, local):      
         path_size = 0
         porcentagem_concluida = 0
         for videos in os.listdir(local):            

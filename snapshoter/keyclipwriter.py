@@ -3,6 +3,7 @@ from threading import Thread
 from queue import Queue
 import time
 import cv2
+import os
 
 #bufsize o numero máximo de frames que ficará em cache na memoria do buffer
 #timeout numero de segundos para "dormir" quando estiver escrevendo videoclips ou nenhum frame para ler
@@ -27,11 +28,16 @@ class KeyClipWriter:
             self.Q.put(frame)
 
     def start(self, outputPath, fourcc, fps):
+
+        if not os.path.exists(outputPath['path']):
+            os.makedirs(outputPath['path'])        
+
+        output = outputPath['path'] + '/'+ outputPath['file']        
         #indicar qndo estamos gravando, iniciar o escritor de video
         #iniciar a fila de frames que vão ser escritas no arquivo de video
         self.recording = True
-        print(outputPath)
-        self.writer = cv2.VideoWriter(outputPath, fourcc, fps, 
+        print(output)
+        self.writer = cv2.VideoWriter(output, fourcc, fps, 
             (self.frames[0].shape[1], self.frames[0].shape[0]), True)
         self.Q = Queue()
 
