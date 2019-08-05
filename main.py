@@ -86,7 +86,7 @@ while True:
                     timestamp = datetime.datetime.now()
                     p = {
                         "path" : "output",
-                        "file" : timestamp.strftime("%d-%m-%Y-%H:%M:%S")
+                        "file" : timestamp.strftime("%d-%m-%Y-%H:%M:%S"),
                         "format" : ".avi"
                     }
                     #p = "{}/{}.avi".format('output', timestamp.strftime("%d-%m-%Y-%H:%M:%S"))
