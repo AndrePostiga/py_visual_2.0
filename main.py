@@ -72,7 +72,7 @@ while True:
             updateConsecFrames = True
 
             #cv2.imshow("Frame", frame) 
-            key = cv2.waitKey(1) & 0xFF #tentar remover essa linha
+            #key = cv2.waitKey(1) & 0xFF #tentar remover essa linha
 
             if gpio.event_detected(BTN_GRAVAR):
                 gpio.output(LED_VERMELHO, 0)
